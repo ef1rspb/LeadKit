@@ -22,10 +22,10 @@ before_install:
 script:
     - set -o pipefail
 
-    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -configuration Release -sdk iphonesimulator | xcpretty -c
-    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -configuration Release -sdk macosx | xcpretty -c
-    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -configuration Release -sdk appletvsimulator | xcpretty -c
-    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit watchOS' -configuration Release -sdk watchsimulator | xcpretty -c
+    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -sdk iphonesimulator | xcpretty -c
+    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -sdk macosx | xcpretty -c
+    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -sdk appletvsimulator | xcpretty -c
+    - xcodebuild clean build -workspace LeadKit.xcworkspace -scheme 'LeadKit watchOS' -sdk watchsimulator | xcpretty -c
 
 after_success:
     #
