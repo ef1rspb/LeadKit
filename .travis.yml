@@ -22,10 +22,10 @@ before_install:
 script:
     - set -o pipefail
 
-    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -sdk iphonesimulator | xcpretty -c
-    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -sdk macosx | xcpretty -c
+    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
+    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
     - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -sdk appletvsimulator | xcpretty -c
-    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit watchOS' -sdk watchsimulator | xcpretty -c
+    - xcodebuild test -enableCodeCoverage YES -workspace LeadKit.xcworkspace -scheme 'LeadKit watchOS' -destination 'platform=watchOS Simulator,name=Apple Watch' -sdk watchsimulator | xcpretty -c
 
 after_success:
     #
