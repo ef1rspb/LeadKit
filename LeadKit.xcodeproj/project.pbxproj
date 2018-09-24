@@ -2690,7 +2690,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ". build-scripts/xcode/build_phases/swiftlint.sh Sources";
+			shellScript = "#. build-scripts/xcode/build_phases/swiftlint.sh Sources";
 		};
 		6782BBBC1EB31ED90086E0B8 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2732,7 +2732,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = ". build-scripts/xcode/build_phases/copy_paste_detection.sh Sources";
+			shellScript = "#. build-scripts/xcode/build_phases/copy_paste_detection.sh Sources";
 		};
 		67EB7FCB2061537600BDD9FB /* CopyPaste Detection */ = {
 			isa = PBXShellScriptBuildPhase;
