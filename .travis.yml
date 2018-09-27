@@ -27,9 +27,11 @@ before_install:
 
 script:
     - set -o pipefail
-    - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
-    - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
-    - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -sdk appletvsimulator | xcpretty -c
+    - xcodebuild clean build build-for-testing -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
+    - xcodebuild test-without-building -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
+   # - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
+   # - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -sdk appletvsimulator | xcpretty -c
 
 after_success:
     - sleep 20
+    - bash < (curl -s https://codecov.io/bash)
