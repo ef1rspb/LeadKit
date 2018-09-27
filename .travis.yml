@@ -23,10 +23,8 @@ before_install:
     - xcodebuild -showsdks
 
     # Download & isntall pmd / cpd
-    - shopt -s expand_aliases
-    - wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F6.7.0/pmd-bin-6.7.0.zip
-    - unzip pmd-bin-6.7.0.zip
-    - alias pmd="pmd-bin-6.7.0/bin/run.sh pmd"
+    - brew install pmd
+    
 script:
     - set -o pipefail
 
