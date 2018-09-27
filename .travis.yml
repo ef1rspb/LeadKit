@@ -27,7 +27,7 @@ before_install:
 
 script:
     - set -o pipefail
-    - xcodebuild clean build test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 5s' -sdk iphonesimulator | xcpretty -c
+    - xcodebuild clean build test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS' -destination 'platform=iOS Simulator,name=iPhone 5s' -sdk iphonesimulator11.4 | xcpretty -c
    # - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit iOS Extensions' -destination 'platform=iOS Simulator,name=iPhone 6s' -sdk iphonesimulator | xcpretty -c
    # - xcodebuild test -enableCodeCoverage YES CODE_SIGNING_ALLOWED=YES -workspace LeadKit.xcworkspace -scheme 'LeadKit tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 4K' -sdk appletvsimulator | xcpretty -c
 
